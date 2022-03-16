@@ -1,0 +1,9 @@
+node_modules
+
+#Compiled JS
+bundle.js
+bundle.js.map
+
+#OSX file about open files
+.DS_STORE
+
