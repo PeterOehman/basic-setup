@@ -10,7 +10,11 @@
     "dependencies": {
       "express": "will be how we run our server",
       "react/react-dom": "front end package for writing html in javascript files using jsx",
-      "react-router-dom": "can add links and show certain react components when the url is a certain value"
+      "react-router-dom": "can add links and show certain react components when the url is a certain value",
+      "redux": "state management for our front end",
+      "react-redux": "with this we can connect our react components to our redux store",
+      "redux-thunk": "we can now use thunks to do async things",
+      "redux-logger": "creates logs to the console with changes to our redux store"
     },
     "devdependencies": {
       "webpack": "this starts at some starting file, and takes all your include statements and creates one file using a dependency graph",
@@ -32,7 +36,11 @@
     "express": "^4.17.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^6.2.2"
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.2",
+    "redux": "^4.1.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
