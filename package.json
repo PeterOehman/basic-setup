@@ -1,24 +1,28 @@
 {
-  "name": "boilerPlate",
+  "name": "boilerplate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "webpack -w & nodemon server"
   },
   "comments": {
     "dependencies": {
+      "express": "will be how we run our server",
       "react/react-dom": "front end package for writing html in javascript files using jsx",
       "react-router-dom": "can add links and show certain react components when the url is a certain value"
     },
     "devdependencies": {
-      "webpack": "this starts at some staring file, and takes all your include statements and creates one file using a dependency graph",
+      "webpack": "this starts at some starting file, and takes all your include statements and creates one file using a dependency graph",
       "babel-loader": "this will make babel work while webpack is bundling files",
       "webpack-cli": "this makes it so we can do the command on the command line webpack -w, which will look for file changes and rebundle our code. We will make this happen as part of our start script",
-      "express": "will be how we run our server",
       "babel-core": "this gives the core functionality of babel, which is changing modern javascript such as arrow funtions into javascript readable by most browsers",
       "babel-preset-react": "this will change jsx inside our react files into regular javascript",
-      "babel-present-env": "this can specify what version of browsers we want to support, not too sure on this one yet though"
+      "babel-present-env": "this can specify what version of browsers we want to support, not too sure on this one yet though",
+      "morgan": "morgan is logging middleware for our backend"
+    },
+    "scripts": {
+      "start-dev": "webpack -w will make webpack look for changes and rebundle our code, nodemon server will run our index file in our server folder and restart the server if there is a file change"
     }
   },
   "keywords": [],
@@ -35,6 +39,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
+    "morgan": "^1.10.0",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2"
   }

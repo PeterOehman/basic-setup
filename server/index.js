@@ -20,7 +20,7 @@ app.use('/api', require('./api'))
 
 //serving html file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './index.html'))
+  res.sendFile(path.join(__dirname, '../index.html'))
 })
 
 //if anything gets this far something's gone wrong
@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
 })
 
 //start the server
-const port = process.evt.PORT || 1337
+const port = process.env.PORT || 1337
 app.listen(port, () => {
   console.log('Speedily serving silly sounds on port 1337')
 })
