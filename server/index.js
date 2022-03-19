@@ -20,7 +20,7 @@ app.use('/api', require('./api'))
 
 //serving html file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../index.html'))
+  res.sendFile(path.join(__dirname, '..public/index.html'))
 })
 
 //if anything gets this far something's gone wrong
@@ -29,8 +29,4 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || 'Internal server error')
 })
 
-//start the server
-const port = process.env.PORT || 1337
-app.listen(port, () => {
-  console.log('Speedily serving silly sounds on port 1337')
-})
+module.exports = app

@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack -w & nodemon server"
+    "start": "node main.js",
+    "seed": "node seed.js",
+    "build": "webpack",
+    "build-dev": "webpack -w",
+    "start-server": "JWT=shh nodemon main.js -e html,js,css --ignore public",
+    "start-dev": "npm run build-dev & npm run start-server",
+    "start-dev-seed": "SEED=true npm run start-dev",
+    "start-dev-logger": "LOGGING=true npm run start-dev"
   },
   "comments": {
     "dependencies": {
@@ -14,7 +21,12 @@
       "redux": "state management for our front end",
       "react-redux": "with this we can connect our react components to our redux store",
       "redux-thunk": "we can now use thunks to do async things",
-      "redux-logger": "creates logs to the console with changes to our redux store"
+      "redux-logger": "creates logs to the console with changes to our redux store",
+      "sequelize": "an object relational mapper to use javascript to manipulate our database",
+      "pg": "you can use this to write sql queries to our database, you need this installed to use sequelize, as sequelize is built on top of this",
+      "pg-hstore": "a way to change the format of json data to and from json to strings, not sure why we need this one, didn't use it in jpfp",
+      "bcrypt": "how you can hash passwords when they get stored in the database, then compare the hashed version to the version a user inputs while logging in",
+      "jsonwebtoken": "a way to create a 'user session', this is how a server knows who you are while logged in, it creates a token, which is just a string that is stored on the users end, usually as a cookie"
     },
     "devdependencies": {
       "webpack": "this starts at some starting file, and takes all your include statements and creates one file using a dependency graph",
@@ -23,31 +35,38 @@
       "babel-core": "this gives the core functionality of babel, which is changing modern javascript such as arrow funtions into javascript readable by most browsers",
       "babel-preset-react": "this will change jsx inside our react files into regular javascript",
       "babel-present-env": "this can specify what version of browsers we want to support, not too sure on this one yet though",
-      "morgan": "morgan is logging middleware for our backend"
-    },
-    "scripts": {
-      "start-dev": "webpack -w will make webpack look for changes and rebundle our code, nodemon server will run our index file in our server folder and restart the server if there is a file change"
+      "morgan": "morgan is logging middleware for our backend",
+      "style-loader": "webpack now puts a style tag in the dom automatically",
+      "css-loader": "webpack can now bundle multiple css files into one css file",
+      "nodemon": "automatically restarts when it detects file changes"
     }
   },
-  "keywords": [],
-  "author": "",
+  "author": "Peter Oehman",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "sequelize": "^6.17.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
+    "css-loader": "^6.7.1",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "style-loader": "^3.3.1",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2"
   }

@@ -2,4 +2,4 @@ const dummyReducer = (state = {}, action) => {
   return state
 }
 
-export const dummyReducer
+export default dummyReducer
